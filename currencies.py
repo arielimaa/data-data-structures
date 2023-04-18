@@ -9,8 +9,12 @@ def convert(amount, currency):
     amount is a tuple like (100, "EUR")
     currency is a string
     """
-    if amount[1]+currency in RATES.keys():
-        converted_amount= amount[0]*RATES[amount[1]+currency]
-        return round(converted_amount)
+    original_amount = amount[0]
+    original_currency = amount[1]
+    rate = original_currency + currency
+    
+    RATES_list = list(RATES.keys())
+    if rate not in RATES_list:
+        return None
     else:
-            return None
+        return round(RATES[rate] * original_amount)
