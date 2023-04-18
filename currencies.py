@@ -3,7 +3,6 @@
 # TODO: add some currency rates
 RATES = {'USDEUR': 0.85,'GBPEUR': 1.13, 'CHFEUR': 0.86,'EURGBP': 0.885}
 
-
 def convert(amount, currency):
     """returns the converted amount in the given currency
     amount is a tuple like (100, "EUR")
@@ -13,8 +12,7 @@ def convert(amount, currency):
     original_currency = amount[1]
     rate = original_currency + currency
     
-    RATES_list = list(RATES.keys())
-    if rate not in RATES_list:
+    rates_list = list(RATES.keys())
+    if rate not in rates_list:
         return None
-    else:
-        return round(RATES[rate] * original_amount)
+    return round(RATES[rate] * original_amount)
